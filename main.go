@@ -12,15 +12,11 @@ import (
 )
 
 var (
-	pdAddr = "127.0.0.1:2379"
-	// total size of record in GB
-	targetSizeGB = 4
-	// number of thread executing load and delete
-	thread = 40
-	// size per record
-	bytePerRecord = 400
-	// number of record per batch if using batchLoad
-	recordPerBatch = 100
+	pdAddr         = "127.0.0.1:2379"
+	targetSizeGB   = 4   // total size of record in GB
+	thread         = 40  // number of thread executing load and delete
+	bytePerRecord  = 400 // size per record
+	recordPerBatch = 100 // number of record per batch if using batchLoad
 	wg             = sync.WaitGroup{}
 )
 
