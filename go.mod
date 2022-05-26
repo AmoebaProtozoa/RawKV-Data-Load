@@ -1,4 +1,4 @@
-module data_load
+module github.com/AmoebaProtozoa/RawKV-Data-Load
 
 replace github.com/tikv/client-go/v2 => github.com/iosmanthus/client-go/v2 v2.0.0-alpha.0.20220523093003-4cde6c52b9aa
 

@@ -78,10 +78,10 @@ func runBatchLoad(recordCount int, startIndex int) {
 	defer close(cli)
 
 	for i := startIndex; i < startIndex+recordCount; i += recordPerBatch {
-		keys := make([][]byte, recordPerBatch)
-		vals := make([][]byte, recordPerBatch)
+		keys := make([][]byte, 0, recordPerBatch)
+		vals := make([][]byte, 0, recordPerBatch)
 		for j := i; j < i+recordPerBatch; j++ {
-			key := []byte("GCTestEntry" + strconv.Itoa(i))
+			key := []byte("GCTestEntry" + strconv.Itoa(j))
 			val := make([]byte, bytePerRecord)
 			rand.Read(val)
 			keys = append(keys, key)
@@ -129,6 +129,6 @@ func runDelete(recordCount int, startIndex int) {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Printf("deleted entry %d\n", i)
 	}
+	fmt.Printf("deleted entry %d to %d \n", startIndex, startIndex+recordCount)
 }
